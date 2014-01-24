@@ -30,8 +30,7 @@ function prompt_joshua_precmd {
 }
 
 
-setopt extended_glob
-theme_preexec () {
+prompt_joshua_preexec () {
     setopt extended_glob
     if [[ "$TERM" == "screen" ]]; then
 	local CMD=${1[(wr)^(*=*|sudo|-*)]}
