@@ -43,7 +43,9 @@ function prompt_joshua_setup {
     ###
     # Need this so the prompt will work.
 
-    setopt prompt_subst
+    setopt LOCAL_OPTIONS
+    unsetopt XTRACE KSH_ARRAYS
+    prompt_opts=(cr percent subst)
 
 
     ###
@@ -141,6 +143,7 @@ $PR_LIGHT_GREEN%_$PR_BLUE)$PR_SHIFT_IN$PR_HBAR$PR_SHIFT_OUT\
 $PR_CYAN$PR_SHIFT_IN$PR_HBAR$PR_SHIFT_OUT$PR_NO_COLOUR '
 autoload -Uz add-zsh-hook
 add-zsh-hook preexec prompt_joshua_preexec
+add-zsh-hook precmd prompt_joshua_precmd
 }
 
 prompt_joshua_setup "$@"
